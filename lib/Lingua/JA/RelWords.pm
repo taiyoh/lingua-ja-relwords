@@ -2,7 +2,7 @@ package Lingua::JA::RelWords;
 
 use strict;
 use warnings;
-our $VERSION = '0.01';
+our $VERSION = '0.009';
 
 1;
 __END__
