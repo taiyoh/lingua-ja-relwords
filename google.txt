@@ -1,0 +1,60 @@
+via Google option: http://web.sfc.keio.ac.jp/~n04525sn/wiki.cgi?Google%B8%A1%BA%F7%A5%AA%A5%D7%A5%B7%A5%E7%A5%F3
+
+URL引数
+編集
+
+基礎知識
+    URL引数は「名前=値」で1セットを構成する。最初の引数は ? の後に書き、複数セットを渡すときは & （アンパサンド）でつなぐ。用例：http://www.google.com/search?num=50&hl=ja&lr=lang_ja&q=Google （「『Google』という文字を含む日本語のページを検索し、ナビゲーション言語も日本語で結果を表示しろ」という意味）
+q / as_q
+    検索文字列。記号や非ascii文字はURLエンコードが必要。
+num
+    1ページに表示する結果の数。用例：num=50 etc.
+hl
+    ナビゲーション言語を設定。用例：hl=ja hl=en etc.
+lr
+    検索の対象とする言語を限定。用例：lr=lang_ja lr=lang_en etc.
+ie
+    入力を解釈するエンコードを指定。用例：ie=utf8 ie=shift_jis ie=euc-jp ie=iso-8859-1 etc.
+oe
+    出力エンコードを指定。用例：oe=utf8 oe=shift_jis oe=euc-jp oe=iso-8859-1 etc.
+domains
+    検索の対象を限定するドメインを指定。単体で指定すると、ラジオボタンが表示されるが検索は限定されない。sitesearch とセットで使とラジオボタンが選択される。用例：domains=http%3A%2F%2Fsfc.keio.ac.jp
+sitesearch
+    検索の対象とするサイトを限定。sitesearch とセットで使い、指定するドメインも一致させる。用例：domains=http%3A%2F%2Fsfc.keio.ac.jp& sitesearch=http%3A%2F%2Fsfc.keio.ac.jp
+as_qdr
+    検索対象の最終更新日を指定。all（指定なし） m3（3ヶ月以内） m6（半年以内） y（1年以内）を指定できる。
+as_occt
+    検索対象をページ内から限定する。any（ページ全て） title（titleタグ内） body（bodyタグ内） url（ページのURLのみ） links（ページへのリンク内）
+as_rq (Related Query ?)
+    値のURLに関連するページを検索。用例：as_rq=www.google.com etc.
+as_lq (Linked Query ?)
+    値のURLにリンクしているページを検索。用例：as_lq=www.google.com etc.
+
+ペアで使用するもの
+編集
+
+as_dt
+    「as_sitesearch で指定したドメインを検索対象とする／しない」を指定。i（検索の対象にする） e（検索の対象から除く）
+as_sitesearch
+    検索対象とする／しないドメインを指定。
+
+as_ft
+    「as_filetype で指定したファイルタイプを検索の対象とする／しない」を設定。as_filetype とセットで使う。用例：as_dt=i（含める） as_dt=e（除く）
+as_filetype
+    検索対象とする／しないファイルタイプを指定。as_ft とセットで使う。pdf, ps, doc, xls, ppt, rtf などを指定できる。
+
+フォームに入れるもの
+編集
+
+site
+    検索ドメインを限定する。-site:xxx とすると、検索対象としないドメインを指定できる。用例：site:sfc.keio.ac.jp site:jp
+daterange
+    検索日付を限定する。ユリウス日に変換する必要がある。用例：daterange:2452555-2453000 
+
+=cut
+
+=head3 TODO
+
+use LWP::UserAgent;
+Web::Scraperの挙動はこちらで制御する
+
